@@ -1,0 +1,42 @@
+body {font-size:17px !important;}
+.my-theme {
+    background-color:black !important;
+    color:white !important;
+}
+.theme-color {color:black !important;}
+
+/* style popup
+.my-pop-menu {
+    background-color:#ff66ff;
+} */
+
+
+/* to shadow all text
+body {
+    text-shadow: #DDDDDD 1px 1px 1px;
+} */
+
+/* to blink myTime */
+@-webkit-keyframes timeBlink {
+    0%   {color:#fff;}
+    25%  {color:#000;}
+    50%  {color:#fff;}
+    75%  {color:#000;}
+    100% {color:#fff;}
+}
+span.timeBlink {
+    -webkit-animation: timeBlink 2s linear 0s infinite alternate;
+}
+
+/* to style time */
+#myTime {
+    /*background-color:#0000FF;*/
+    /*font-weight : bold;*/
+    font-style : italic;
+    /*clear:both;*/
+    /*font-size:22px;*/
+    color:#85144b;
+    text-align:right;
+    line-height:0.7;
+    /*padding:10px;*/
+}

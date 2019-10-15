@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="theme-color" content="black">
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" href="code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <!--<link rel="stylesheet" type="text/css" href="css/jqmCustomStyle.css" />-->
+        <title>Base Conversion</title>
+        <style>
+            a { color: #0095DD; text-decoration: none; }
+            a:hover { text-decoration: underline; }
+        </style>
+    </head>
+    <body onload="startTime()" id="mainPage2" style="">
+        <div data-role="page" id="mainPage" style="">
+            <div data-role="header" id="mainHeader" data-position="fixed" class="my-theme">
+                <a href="#baseInfo" data-rel="popup" data-position-to="window" data-transition="flip" style="border:none;" class="my-theme ui-btn ui-btn-inline ui-corner-all ui-icon-info ui-btn-icon-left ui-btn-icon-notext">About</a>
+                <h1>Base Conversion</h1>
+                <a href="#menuPanel" data-transition="flow" style="border:none;" class="my-theme ui-btn ui-btn-inline ui-corner-all ui-icon-bars ui-btn-icon-right ui-btn-icon-notext">Menu</a>
+            </div>
+            <div data-role="main" class="ui-content" style="">
+                <h3 style="margin-top:0;margin-bottom:0;" class="theme-color">Application: Base Conversion</h3>
+                <form method="post" action="#">
+                    <div class="ui-field-contain">
+                        <label for="d" class="theme-color">Decimal:</label>
+                        <input style="" onkeyup="numberSys('D')" type="number" name="d" id="d" placeholder="Enter Decimal value" data-clear-btn="true" class="ui-mini ui-shadow ui-corner-all">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="h" class="theme-color">Hexadecimal:</label>
+                        <input style="" onkeyup="numberSys('H')" type="text" name="h" id="h" placeholder="Enter Hexadecimal value" data-clear-btn="true" class="ui-mini ui-shadow ui-corner-all">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="o" class="theme-color">Octal:</label>
+                        <input style="" onkeyup="numberSys('O')" type="number" name="o" id="o" placeholder="Enter Octal value" data-clear-btn="true" class="ui-mini ui-shadow ui-corner-all">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="b" class="theme-color">Binary:</label>
+                        <input style="" onkeyup="numberSys('B')" type="number" name="b" id="b" placeholder="Enter Binary value" data-clear-btn="true" class="ui-mini ui-shadow ui-corner-all">
+                    </div>
+                </form>
+                <br>
+                <div id = "myTime" class="theme-color"></div>
+                <div data-role="popup" id="baseInfo" class="ui-content my-theme">
+                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                    <h4 style="text-align:center;">Number System</h4>
+                    <ul data-role="listview" data-inset="true" style="min-width:250px;">
+                        <li class="my-theme" data-icon="info">Decimal: Base 10<br>Digits: 0 - 9</li>
+                        <li class="my-theme" data-icon="info">Hexadecimal: Base 16<br>Digits: 0 - 9, A, B, C, D, E, F</li>
+                        <li class="my-theme" data-icon="info">Octal: Base 8<br>Digits: 0 - 7</li>
+                        <li class="my-theme" data-icon="info">Binary: Base 2<br>Digits: 0 , 1</li>
+                    </ul>
+                </div>
+            </div> <!--close popup-->
+            <div data-role="panel" id="menuPanel" data-display="reveal" class="my-theme" style="" data-position-fixed="true">
+                <h4>Choose option</h4>
+                <ul data-role="listview" data-inset="true" style="min-width:200px;">
+                    <li data-icon="info"><a class="my-theme" href="#aboutPop" data-rel="popup" data-position-to="window" data-transition="slideup" style="">About</a></li>
+                    <li data-icon="user"><a class="my-theme" href="#aboutMePop" data-rel="popup" data-position-to="window" data-transition="flow" style="">About me</a></li>
+                    <li data-icon="phone"><a class="my-theme" href="#contactsPop" data-rel="popup" data-position-to="window" data-transition="flip" style="">Contacts</a></li>
+                    <li data-icon="action"><a class="my-theme" href="#followMePop" data-rel="popup" data-position-to="window" data-transition="turn" style="">Follow me</a></li>
+                </ul>
+                <!--<a href="#mainPage" data-rel="close" style="background-color:#001f3f;color:#B10DC9;" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-mini">Close</a>-->
+            </div>
+            <!--popup two-->
+            <div data-role="popup" id="aboutPop" style="">
+                <div data-role="header" class="my-theme">
+                    <h1>About this application</h1>
+                </div>
+                <div data-role="main" class="ui-content" >
+                    <h3>Base conversion</h3>
+                    Base transformer app. <br>Might be helpfull for CSE students.<br> <br>
+                    <a href="#mainPage" style="" data-transition="slide" class="my-theme ui-btn ui-btn-inline ui-shadow ui-corner-all ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini" data-rel="back">Ok</a>
+                    <a href="#mainPage" style="" data-transition="slide" class="my-theme ui-btn ui-icon-delete ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all ui-btn-inline ui-mini" data-rel="back">Cancel</a>
+                </div>
+            </div> <!--end popup two-->
+            <!--popup three-->
+            <div data-role="popup" id="aboutMePop" style="">
+                <div data-role="header" class="my-theme">
+                    <h1>About me</h1>
+                </div>
+                <div data-role="main" class="ui-content" style="text-align:justify;">
+                    <h3>Anwar Hossain</h3>
+                    Student of class XII. SSC Roll: 115899, Rajshahi Board, 2014, SHIBPUR HIGH SCHOOL, Patnitala, Noagaon. I love cricket, swimming, programming, reading novels-fiction books and so on. And very fond of music as well<br><br>
+                    <a href="#mainPage"  data-transition="flow" class="my-theme ui-btn ui-btn-inline ui-shadow ui-corner-all ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini" data-rel="back">Ok</a>
+                    <a href="#mainPage"  data-transition="flow" data-direction="reverse" class="my-theme ui-btn ui-icon-delete ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all ui-btn-inline ui-mini" data-rel="back">Cancel</a>
+                </div>
+            </div> <!--end popupthree-->
+            <!--popupfour-->
+            <div data-role="popup" id="contactsPop" style="">
+                <div data-role="header" class="my-theme">
+                    <h1>Contact info</h1>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <h4>Website: <a href="#" onclick="window.open('http://w3cp.blogspot.com', '_system');">w3cp.blogspot.com</a></h4>
+                    <h4>Email me at: <a href="mailto:jannat.books@gmail.com">jannat.books@gmail.com</a></h4>
+                    <p>&#9743;+8801866675578 &nbsp; &#9743;+8801768310499</p>
+                    <div style='display:inline;'><h4 style='display:inline;'>Address: </h4><marquee style=''>Shashail, Rasulpur [6540], Patnitala, Naogaon, Rajshahi, Bangladesh</marquee></div><br><br>
+                    <a href="#mainPage" data-transition="flip" style="border-radius:200px;" class="my-theme ui-btn ui-btn-inline ui-shadow ui-corner-all ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini" data-rel="back">Ok</a>
+                    <a href="#mainPage" data-transition="pop" style="border-radius:200px;" class="my-theme ui-btn ui-icon-delete ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all ui-btn-inline ui-mini" data-rel="back">Cancel</a>
+                </div>
+            </div> <!--end popupfour-->
+            <!--popupfive-->
+            <div data-role="popup" id="followMePop" style="">
+                <div data-role="header" class="my-theme">
+                    <h1>Follow me</h1>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <h4>Follow me on GitHub <a href="#" onclick="window.open('https://github.com/w3cp/', '_system');">github.com/w3cp</a></h4>
+                    <h4>Follow me on Facebook <a href="#" onclick="window.open('https://www.facebook.com/anwar.ubuntu', '_system');">fb.com/anwar.ubuntu</a></h4><br>
+                    <a href="#mainPage" data-transition="turn" style="border-radius:200px;" class="my-theme ui-btn ui-btn-inline ui-shadow ui-corner-all ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini" data-rel="back">Ok</a>
+                    <a href="#mainPage" data-transition="turn" style="border-radius:200px;" class="my-theme ui-btn ui-icon-delete ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all ui-btn-inline ui-mini" data-rel="back">Cancel</a>
+                </div>
+            </div> <!--end popupfive-->
+            <!--<div data-role="footer" class="my-theme my-footer">
+                <h2><a class="my-theme" href="#" onclick="window.open('https://github.com/w3cp/', '_system');">github.com/w3cp</a></h2>
+            </div>-->
+        </div> <!-- Finish pageone -->
+        <!--Javascript-->
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script src="code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/numSys.js"></script>
+        <!--<script type="text/javascript">
+            app.initialize();
+        </script>-->
+    </body>
+</html>
